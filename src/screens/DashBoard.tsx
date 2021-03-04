@@ -1,49 +1,55 @@
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-community/async-storage';
+import { useNavigation } from '@react-navigation/native';
+import jwt from 'jwt-decode';
 import React, { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
-import { useNavigation} from '@react-navigation/native';
+
 import BottomMenu from '../components/BottomMenu';
-import { DashProps } from '../interfaces';
+import { DashProps, IUserDash } from '../interfaces';
 import api from '../services/api';
-import decode from 'jwt-decode';
 
-import  AsyncStorage  from '@react-native-community/async-storage';
-
-function DashBoard() {
+ function  DashBoard() {
     const navigation = useNavigation();
-
     const [dataDash, setDataDash] = useState<DashProps>();
 
-    
-
-
-    const TokenStorage = () => AsyncStorage.getItem('@tokenApp');
+    const Token =  async () => await AsyncStorage.getItem("@tokenApp") || null;
+    const TokenString = JSON.stringify(Token);
+    console.log("TOKENARRAY:", TokenString)
 
     const TokenDecodedValue = () => {
-        if (TokenStorage) {
-            const TokenArr = TokenStorage.split(' ')
-            const TokenDecode = TokenArr[1]
-            const decoded = decode<IUserDash>(TokenDecode);
-            return decoded.sub;
-        } else {
-            alert('err')
+        if(TokenString){
+            const TokenArray = TokenString.split(' ');
+            const TokenArr = TokenArray[1]
+            const decode = jwt<IUserDash>(TokenArr);
+            return decode.sub
+        }else{
+            console.log('err')
         }
     }
 
+
+    
+    function CloseDash() {
+        AsyncStorage.clear();
+        navigation.navigate('home')
+    }
+       
+    
+
     useEffect(() => {
 
-        console.log(TokenDecodedValue());
 
         api.get('/dashboard', {
             params: {
                 inicio: '2021-03-03',
                 fim: '2021-03-30',
-                login: `${TokenDecode()}`
+                login: `${TokenDecodedValue()}`
             },
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": TokenStorage,
+                "Authorization": TokenString ,
             },
         }).then(
             response => {
@@ -53,14 +59,14 @@ function DashBoard() {
             }
         );
 
-    }, [])
+    }, [dataDash])
 
     return (
 
         <Container>
             <Header>
-                <TextHeader >Olá, {user}</TextHeader>
-                <Ionicons color="#fff" name="person-circle-outline" size={40} />
+                <TextHeader >Olá, User</TextHeader>
+                <Ionicons onPress={CloseDash} color="#fff" name="person-circle-outline" size={40} />
             </Header>
             <ScrollView>
                 <BoxMain>
@@ -69,7 +75,8 @@ function DashBoard() {
                             <MaterialCommunityIcons color="#9B9B9B" name="currency-usd-circle-outline" size={30} />
                             <TextTitle>Saldo da Conta</TextTitle>
                         </BoxtTitle>
-                        <TextValor>R${dataDash?.contaBanco.saldo}</TextValor>
+                        {/* <TextValor>R${dataDash?.contaBanco.saldo}</TextValor> */}
+                        <TextValor>R$5.000,00</TextValor>
                         <TextLancamentos>Lançamentos de débito: </TextLancamentos>
                     </BoxContent>
 
@@ -79,11 +86,13 @@ function DashBoard() {
                             <TextTitle>Planos da Conta</TextTitle>
                         </BoxtTitle>
                         <TextTipos>Tipo do Plano: Receita</TextTipos>
-                        <TextValor>R$:{dataDash?.contaBanco.lancamentos[0].valor}</TextValor>
+                        {/* <TextValor>R$:{dataDash?.contaBanco.lancamentos[0].valor}</TextValor> */}
+                        <TextValor>R$:34,00</TextValor>
 
                         <Linha></Linha>
                         <TextTipos>Tipo do Plano: Despesas</TextTipos>
-                        <TextValorDespesa>R${dataDash?.contaCredito.lancamentos[0].valor}</TextValorDespesa>
+                        {/* <TextValorDespesa>R${dataDash?.contaCredito.lancamentos[0].valor}</TextValorDespesa> */}
+                        <TextValorDespesa>R$155,00</TextValorDespesa>
 
                     </BoxContent>
 
@@ -94,11 +103,13 @@ function DashBoard() {
 
                         </BoxtTitle>
                         <LancamentosValores>
-                                    <LinhaVerical></LinhaVerical>
-                            {dataDash?.contaBanco.lancamentos.map((lanca, index) => (
+                            <LinhaVerical></LinhaVerical>
+                            <TextValor >R$:1.000,00</TextValor>
+
+                            {dataDash?.contaBanco.lancamentos.map((lanca) => (
                                 <>
 
-                                    <TextValor  key={index} >R$:{lanca.valor}</TextValor>
+                                    {/* <TextValor key={lanca.id} >R$:{lanca.valor}</TextValor> */}
                                     <TextDate>{lanca.data}</TextDate>
                                     <LinhaVerical></LinhaVerical>
                                 </>
@@ -110,7 +121,7 @@ function DashBoard() {
 
                 </BoxMain>
             </ScrollView>
-            <BottomMenu/>
+            <BottomMenu />
         </Container>
 
     )

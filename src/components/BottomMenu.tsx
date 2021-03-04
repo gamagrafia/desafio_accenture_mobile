@@ -1,14 +1,37 @@
+// import { createAppContainer } from 'react-navigation';
+// import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { color } from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
 
+// import Deposito from '../screens/Deposito';
+// import Transferencia from '../screens/Transferencia';
+
+
+
+// const  BottomMenu = createBottomTabNavigator({
+//   Deposito,
+//   Transferencia
+// });
+
+// export default createAppContainer(BottomMenu);
+
+
+
+
 export default function BottomMenu() {
+
+ const navigation = useNavigation();
+
+   
     return (
+       
         <FooterMenu>
             <FooterIconTextBox>
-                <MaterialCommunityIcons name="bank-transfer" color="#fff" size={40} />
+                <MaterialCommunityIcons onPress={() => navigation.navigate('transferencia')
+                } name="bank-transfer" color="#fff" size={40} />
                 <FooterText>Tranferir</FooterText>
             </FooterIconTextBox>
             <FooterIconTextBox>
@@ -16,7 +39,8 @@ export default function BottomMenu() {
                 <FooterText>Lançamentos</FooterText>
             </FooterIconTextBox>
             <FooterIconTextBox>
-                <MaterialCommunityIcons name="account-cash-outline" size={40} color="#fff" />
+                <MaterialCommunityIcons onPress={() => navigation.navigate('deposito')
+} name="account-cash-outline" size={40} color="#fff" />
                 <FooterText>Depositar</FooterText>
             </FooterIconTextBox>
             <FooterIconTextBox>
@@ -25,6 +49,7 @@ export default function BottomMenu() {
                 <FooterText>Planos</FooterText>
             </FooterIconTextBox>
         </FooterMenu>
+        
     )
 }
 

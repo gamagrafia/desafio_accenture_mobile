@@ -1,10 +1,10 @@
 import React from 'react';
 
-import DashBoard from './src/screens/DashBoard';
+import Route from './src/routes';
 
 export default function App() {
   return (
-    <DashBoard />
+    <Route />
   );
 }
 
