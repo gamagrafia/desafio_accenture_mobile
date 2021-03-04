@@ -1,24 +1,27 @@
-#  GAMA BANK MOBILE
+# 🚀 GAMA BANK MOBILE
 <p>Projeto desenvolvido por Alitsa Virgínia, Claudia Leite, Caroline Casagrande, Flávio Gama. Com intuito de mostrar nosso conhecimento e todo aprendizado que tivemos ao decorrer de um mês na Gama Academy. </p> 
 
-* LOGIN 
+* 	Login 
     ![login1](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/HomeLogin.PNG)
+*	 Login 
     ![login2](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/Home_Login.PNG)
-* Conta Criada
+* 	Conta Criada
     ![AccountCreated](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/AccountCreated.PNG)
-* Register
+* 	Register
     ![Register](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/Register.PNG)
-* Recuperar Senha
+* 	Recuperar Senha
     ![RecuperarSenha1](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/RecuperarSenha.PNG)
+* 	Recuperar Senha
     ![RecuperarSenha2](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/RecuperarSenhaDois.PNG)
-* Dashboard
+* 	Dashboard
     ![Dashboard1](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/Dashboard.PNG)
+* 	Dashboard
     ![Dashboard2](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashboardProfile.PNG)
-* Trasnferência
+* 	Trasnferência
     ![Transferência](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashTransfer.PNG)
-* Depósito
+* 	Depósito
     ![Depósito](![PassRead](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashDeposito.PNG)
-* Lançamento 
+* 	Lançamento 
     ![Laçamento](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashLancamentos.PNG)
    
 
