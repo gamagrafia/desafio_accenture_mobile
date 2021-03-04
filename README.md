@@ -1,7 +1,7 @@
 # 🚀 GAMA BANK MOBILE
 <p>Projeto desenvolvido por Alitsa Virgínia, Claudia Leite, Caroline Casagrande, Flávio Gama. Com intuito de mostrar nosso conhecimento e todo aprendizado que tivemos ao decorrer de um mês na Gama Academy. </p> 
 
-* 	Login 
+#### 	Login 
     ![login1](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/HomeLogin.PNG)
 *	 Login 
     ![login2](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/Home_Login.PNG)
@@ -39,7 +39,7 @@
 ### 📌 Mindmap
 
 * Mindmap
-	![Mindmap](https://github.com/carolcasagrande/ImagensReadme/blob/main/imgReadme/mindmapAccventure.png)
+	![Mindmap]()
 
 
 ### ✅ Features
