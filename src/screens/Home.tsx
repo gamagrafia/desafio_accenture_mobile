@@ -6,24 +6,28 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import logoGama from '../images/logoGama.png';
 import styled from 'styled-components/native'
 import { api } from '../service/index';
-import {IToken} from '../interfaces'
+import {IUser, IToken} from '../interfaces'
 import  AsyncStorage  from '@react-native-community/async-storage';
 
 export default function Home() {
     const route = useRoute()  
+   
+  const navigation = useNavigation(); 
 
-    const navigation = useNavigation(); 
-
-  const [ login, setLogin ] = useState('')
+  const [ login, setLogin ] = useState<IUser[]>([])
   const [ password, setPassword ] = useState('')
 
- 
 
-  /* const [ storage, setStorage ] = useState<IToken>(():any => {
-    let storageToken = () => localStorage.getItem('@tokenApp')
+  const [ storage, setStorage ] = useState<IToken>(():any => {
+    let storageToken = () => AsyncStorage.getItem('@tokenApp')
     return storageToken();
-  }) */
+  }) 
   
+  /* useEffect(() => {
+    !!storage ? navigation.navigate('/dashboard') : AsyncStorage.clear()
+  }, [storage]) */
+
+
  /*  const storeData = async (value) => {
     try {
       await AsyncStorage.setItem('@storage_Key', value)
@@ -43,11 +47,15 @@ export default function Home() {
 
     api.post(`login`, postData ).then(
       response => {
-       // localStorage.setItem('@tokenApp', response.data.token)
-        navigation.navigate('dashboard')
+        console.log(response.data)
+        
+        AsyncStorage.setItem('@tokenApp', response.data.token)
+       // AsyncStorage.setItem('login', login)
+       // navigation.navigate('dashboard')
+       alert('logado')
       }
     )
-
+        console.log(AsyncStorage.getItem('login'))
   }
 
    
@@ -70,7 +78,7 @@ return (
                     placeholder='Digite seu usuário' 
                     value={ login }
                     onChangeText={(text) => setLogin(text)}
-                    type="text"
+                    
                 
                 />              
                 
@@ -78,7 +86,7 @@ return (
                     placeholder='Digite sua senha'
                     value={ password }
                     onChangeText={(text) => setPassword(text)}
-                    type="password"
+                    
                    
                 />   
 
@@ -165,9 +173,9 @@ const InputPassword = styled.TextInput`
 
 const Link = styled.Text`
     width:250px;
-    font-size: 20px;
+    font-size: 10px;
     font-weight: bold;
-    margin-top: 1px;  
+    margin-top: 15px;  
     text-align: center;
     color: #8C52E5;
 `

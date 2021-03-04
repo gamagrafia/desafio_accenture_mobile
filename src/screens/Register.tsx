@@ -28,7 +28,7 @@ export default function Register(){
   }
   
   if ( password !== confirmPass ) {
-    /* toast.error('Sua senha está incorreta!')  */
+    
     return;
   }
 
@@ -36,17 +36,17 @@ export default function Register(){
     api.post(`usuarios`, postData ).then(
       response => { 
         if (response.status === 200){
-          navigation.navigate('login')
+          navigation.navigate('home')
         } else {
-          /* toast.error('Algo deu errado, tente novamente em alguns minutos.') */
+          
         }
        }
     )
   } catch (e) {
-    /* toast.error('algo deu errado') */
+    
   }
 
-  navigation.navigate('accountCreated')
+  //navigation.navigate('accountCreated')
 }
 
 
@@ -67,32 +67,32 @@ export default function Register(){
                 
                 <Input
                     placeholder='Digite seu cpf' 
-                    type="text"  value={ cpf } 
+                    value={ cpf } 
                     onChangeText={(text) => setCpf(text)}
                     
                 />  
 
                 <Input
                     placeholder='Escolha um nome de usuário ' 
-                    type="text" value={ userName } 
+                    value={ userName } 
                     onChangeText={(text) => setUserName(text)}
                 />             
                 
                 <Input
                     placeholder='Nome completo ' 
-                    type="text" value={ name } 
+                     value={ name } 
                     onChangeText={(text) => setName(text)}
                 />  
 
                 <Input
                     placeholder='Digite sua senha ' 
-                    type="password" value={ password } 
+                     value={ password } 
                     onChangeText={(text) => setPassword(text)}
                 />
 
                 <InputPassword
                     placeholder='Confirme sua senha'
-                    type="password" value={ confirmPass } 
+                     value={ confirmPass } 
                     onChangeText={(text) => setConfirmPass(text)}
                    
                 />   
@@ -159,7 +159,7 @@ const Title = styled.Text`
 
 const Link = styled.Text`
     width:250px;
-    font-size: 20px;
+    font-size: 10px;
     font-weight: bold;
     margin-top: 1px;  
     text-align: center;
