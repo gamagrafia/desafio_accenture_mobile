@@ -33,9 +33,6 @@
 ### 📑 SOBRE
 <p>Projeto Acadêmico realizado junto com Accenture Academy e Gama Academy, onde foi desenvolvido uma aplicação para celular de um banco onde é possível fazer um novo cadastro, acessar a conta, realizar transações e visualizar extrato. </p>
 
-### 🚀 Acesso ao projeto:
-
-
 ### 🚀 OJETIVO 
  <p>O GamaBank Mobile ele tem como objetivo levar até você segurança e comodidade, diretamente da sua casa com mais rapidez no acesso as informações referente à sua conta. Trazendo boas expêriencias e agilidade.  </p>
 
