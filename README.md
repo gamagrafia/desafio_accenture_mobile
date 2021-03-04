@@ -24,14 +24,14 @@
 | ![Dashboard1](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/Dashboard.PNG)| ![Dashboard2](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashboardProfile.PNG)|
 
 
-| Transferência | Depósito |
-|------------|-------------|
+|Transferência|  Depósito   |
+|------------ |-------------|
 | ![Transferencia](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashTransfer.PNG)| ![Deposito
 (https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashDeposito.PNG)
 
 
-| Lançamento |             |
-|------------|-------------|
+| Lançamento |           
+|------------|
 |![Lacamento](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashLancamentos.PNG)|
    
 
