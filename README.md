@@ -26,8 +26,7 @@
 
 |Transferência|   Depósito   |   Lançamento |           
 |------------ |------------- |------------- |
-| ![Transferencia](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashTransfer.PNG)|
-|![Lacamento](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashDeposito.PNG)|![Lacamento](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashLancamentos.PNG)|
+| ![Transferencia](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashTransfer.PNG)|![Lacamento](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashDeposito.PNG) |![Lacamento](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashLancamentos.PNG)|
    
 
 
