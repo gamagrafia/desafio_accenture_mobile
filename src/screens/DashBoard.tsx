@@ -2,28 +2,48 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
-
+import { useNavigation} from '@react-navigation/native';
 import BottomMenu from '../components/BottomMenu';
 import { DashProps } from '../interfaces';
 import api from '../services/api';
+import decode from 'jwt-decode';
+
+import  AsyncStorage  from '@react-native-community/async-storage';
 
 function DashBoard() {
+    const navigation = useNavigation();
+
     const [dataDash, setDataDash] = useState<DashProps>();
 
-    const user = "teste";
-    const token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImlkVXN1YXJpbyI6ODU1LCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjE0ODI0MjUzLCJleHAiOjE2MTQ4Mjc4NTN9.IGLCIwgtl24pyu62zk4tvGB6XsuMBpF564N8T6KVIMx4BWRva8JqF_8_xIZtyuVsZ1NZy688Tt2yenImO9-p0w"
+    
+
+
+    const TokenStorage = () => AsyncStorage.getItem('@tokenApp');
+
+    const TokenDecodedValue = () => {
+        if (TokenStorage) {
+            const TokenArr = TokenStorage.split(' ')
+            const TokenDecode = TokenArr[1]
+            const decoded = decode<IUserDash>(TokenDecode);
+            return decoded.sub;
+        } else {
+            alert('err')
+        }
+    }
+
     useEffect(() => {
 
+        console.log(TokenDecodedValue());
 
         api.get('/dashboard', {
             params: {
                 inicio: '2021-03-03',
                 fim: '2021-03-30',
-                login: `${user}`
+                login: `${TokenDecode()}`
             },
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": token,
+                "Authorization": TokenStorage,
             },
         }).then(
             response => {
@@ -63,7 +83,7 @@ function DashBoard() {
 
                         <Linha></Linha>
                         <TextTipos>Tipo do Plano: Despesas</TextTipos>
-                        <TextValorDespesa>{dataDash?.contaCredito.lancamentos[0].valor}</TextValorDespesa>
+                        <TextValorDespesa>R${dataDash?.contaCredito.lancamentos[0].valor}</TextValorDespesa>
 
                     </BoxContent>
 
@@ -75,10 +95,10 @@ function DashBoard() {
                         </BoxtTitle>
                         <LancamentosValores>
                                     <LinhaVerical></LinhaVerical>
-                            {dataDash?.contaBanco.lancamentos.map((lanca) => (
+                            {dataDash?.contaBanco.lancamentos.map((lanca, index) => (
                                 <>
 
-                                    <TextValor  key={lanca.id} >R$:{lanca.valor}</TextValor>
+                                    <TextValor  key={index} >R$:{lanca.valor}</TextValor>
                                     <TextDate>{lanca.data}</TextDate>
                                     <LinhaVerical></LinhaVerical>
                                 </>
