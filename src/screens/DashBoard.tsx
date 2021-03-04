@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 
+import BottomMenu from '../components/BottomMenu';
 import { DashProps } from '../interfaces';
 import api from '../services/api';
 
@@ -89,7 +90,7 @@ function DashBoard() {
 
                 </BoxMain>
             </ScrollView>
-
+            <BottomMenu/>
         </Container>
 
     )
