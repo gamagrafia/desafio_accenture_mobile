@@ -12,8 +12,6 @@ export default function Register(){
 
   const navigation = useNavigation(); 
 
-  const history = useHistory()
-
   const [ cpf, setCpf ] = useState('')
   const [ name, setName ] = useState('')
   const [ userName, setUserName ] = useState('')
@@ -30,7 +28,7 @@ export default function Register(){
   }
   
   if ( password !== confirmPass ) {
-    toast.error('Sua senha está incorreta!') 
+    /* toast.error('Sua senha está incorreta!')  */
     return;
   }
 
@@ -38,14 +36,14 @@ export default function Register(){
     api.post(`usuarios`, postData ).then(
       response => { 
         if (response.status === 200){
-          history.push('/login')
+          navigation.navigate('login')
         } else {
-          toast.error('Algo deu errado, tente novamente em alguns minutos.')
+          /* toast.error('Algo deu errado, tente novamente em alguns minutos.') */
         }
        }
     )
   } catch (e) {
-    toast.error('algo deu errado')
+    /* toast.error('algo deu errado') */
   }
 
   navigation.navigate('accountCreated')
@@ -108,13 +106,9 @@ export default function Register(){
                 Continuar
                 </Icon.Button>
 
-               {/*  <RecoveryLink /* onPress={() => navigation.navigate('Recover')} >*/
-             /*    <RecoveryLinkText>Esqueci minha senha > </RecoveryLinkText> */
-              /*   </RecoveryLink> */
-
-             /*    <RegisterLink /* onPress={() => navigation.navigate('Register')} *//* > 
-                <RegisterLinkText>Criar uma nova conta</RegisterLinkText>
-                </RegisterLink> */}
+                <Link  onPress={() => navigation.navigate('home')} > 
+                  Voltar para Login
+                </Link>
 
             </Form>
         </Container>
@@ -161,6 +155,15 @@ const Title = styled.Text`
     margin-top: 1px;  
     text-align: center;
     color: #8f8f8f;
+`
+
+const Link = styled.Text`
+    width:250px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 1px;  
+    text-align: center;
+    color: #8C52E5;
 `
 
 const Input = styled.TextInput`    

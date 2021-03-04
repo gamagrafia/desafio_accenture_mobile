@@ -19,10 +19,10 @@ export default function Home() {
 
  
 
-  const [ storage, setStorage ] = useState<IToken>(():any => {
+  /* const [ storage, setStorage ] = useState<IToken>(():any => {
     let storageToken = () => localStorage.getItem('@tokenApp')
     return storageToken();
-  })
+  }) */
   
  /*  const storeData = async (value) => {
     try {
@@ -43,7 +43,7 @@ export default function Home() {
 
     api.post(`login`, postData ).then(
       response => {
-        localStorage.setItem('@tokenApp', response.data.token)
+       // localStorage.setItem('@tokenApp', response.data.token)
         navigation.navigate('dashboard')
       }
     )
@@ -91,13 +91,13 @@ return (
                 Continuar
                 </Icon.Button>
 
-               {/*  <RecoveryLink /* onPress={() => navigation.navigate('Recover')} >*/
-             /*    <RecoveryLinkText>Esqueci minha senha > </RecoveryLinkText> */
-              /*   </RecoveryLink> */
+                <Link  onPress={() => navigation.navigate('recover')} >
+                  Esqueci minha senha  
+                 </Link> 
 
-             /*    <RegisterLink /* onPress={() => navigation.navigate('Register')} *//* > 
-                <RegisterLinkText>Criar uma nova conta</RegisterLinkText>
-                </RegisterLink> */}
+                <Link  onPress={() => navigation.navigate('register')} > 
+                  Criar uma nova conta
+                </Link>
 
             </Form>
         </Container>
@@ -163,16 +163,15 @@ const InputPassword = styled.TextInput`
     border-bottom-width: 1px;    
 `
 
-/* const RecoveryLink = styled.Link`    
-    color: #8C52E5
-` */
-
-
-/* const TextButton = styled.Text`    
-    color: #fff;
-    font-size: 16px;
-    margin-right: 18px;
+const Link = styled.Text`
+    width:250px;
+    font-size: 20px;
     font-weight: bold;
-` */
+    margin-top: 1px;  
+    text-align: center;
+    color: #8C52E5;
+`
+
+
 
 
