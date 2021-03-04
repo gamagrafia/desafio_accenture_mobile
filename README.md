@@ -40,7 +40,7 @@
 ### 📌 Mindmap
 
 * Mindmap
-	![Mindmap]()
+	![Mindmap](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/mindmapMobile.png)
 
 
 ### ✅ Features
