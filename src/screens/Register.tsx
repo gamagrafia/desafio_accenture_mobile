@@ -4,7 +4,8 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import logoGama from '../images/logoGama.png';
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
+import { api } from '../service/index';
 
 export default function Register(){
   const route = useRoute()  
@@ -19,8 +20,7 @@ export default function Register(){
   const [ password, setPassword ] = useState('')
   const [ confirmPass, setConfirmPass ] = useState('')
 
-  function createAccount( event: FormEvent<HTMLFormElement> ){
-  event.preventDefault()
+  function handleCreateAccount(){
 
   const postData = {
     cpf,
@@ -47,6 +47,8 @@ export default function Register(){
   } catch (e) {
     toast.error('algo deu errado')
   }
+
+  navigation.navigate('accountCreated')
 }
 
 
@@ -67,35 +69,41 @@ export default function Register(){
                 
                 <Input
                     placeholder='Digite seu cpf' 
-                    type="text"  value={ cpf } onChange={  e => setCpf( e.target.value)  }
+                    type="text"  value={ cpf } 
+                    onChangeText={(text) => setCpf(text)}
+                    
                 />  
 
                 <Input
                     placeholder='Escolha um nome de usuário ' 
-                    type="text" value={ name } onChange={  e => setName(e.target.value)  }
+                    type="text" value={ userName } 
+                    onChangeText={(text) => setUserName(text)}
                 />             
                 
                 <Input
                     placeholder='Nome completo ' 
-                    type="text" value={ userName } onChange={  e =>  setUserName(e.target.value) }
+                    type="text" value={ name } 
+                    onChangeText={(text) => setName(text)}
                 />  
 
                 <Input
                     placeholder='Digite sua senha ' 
-                    type="password" value={ password } onChange={  e => setPassword(e.target.value) } 
+                    type="password" value={ password } 
+                    onChangeText={(text) => setPassword(text)}
                 />
 
                 <InputPassword
                     placeholder='Confirme sua senha'
-                    type="password" value={ confirmPass } onChange={  e => setConfirmPass(e.target.value) } 
-                   // value={password}
+                    type="password" value={ confirmPass } 
+                    onChangeText={(text) => setConfirmPass(text)}
+                   
                 />   
 
                 <Icon.Button
                 name="chevron-right"
                 backgroundColor="#9B9B9B"   
                 
-                //onPress={}
+                onPress={handleCreateAccount}
                 >
                 Continuar
                 </Icon.Button>

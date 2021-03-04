@@ -5,7 +5,7 @@ import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import logoGama from '../images/logoGama.png';
 import styled from 'styled-components/native'
-import { loginSend } from '../service/index';
+import { api } from '../service/index';
 import {IToken} from '../interfaces'
 import  AsyncStorage  from '@react-native-community/async-storage';
 
@@ -41,7 +41,7 @@ export default function Home() {
       senha: password
     }
 
-    loginSend.post(`login`, postData ).then(
+    api.post(`login`, postData ).then(
       response => {
         localStorage.setItem('@tokenApp', response.data.token)
         navigation.navigate('dashboard')
