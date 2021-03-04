@@ -37,7 +37,7 @@
 
 
 ### 🚀 OJETIVO 
- <p>O GamaBank Mobile ele tem como objetivo levar até você segurança e comodidade, diretamente da sua casa com mais rapidez ao acesso as informações referente à sua conta. Trazendo boas expêriencias e agilidade.  </p>
+ <p>O GamaBank Mobile ele tem como objetivo levar até você segurança e comodidade, diretamente da sua casa com mais rapidez no acesso as informações referente à sua conta. Trazendo boas expêriencias e agilidade.  </p>
 
 
 ### 📌 Mindmap
