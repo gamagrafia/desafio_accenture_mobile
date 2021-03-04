@@ -8,21 +8,26 @@
 |------------|-------------|
 | ![login1](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/HomeLogin.PNG) | ![login2](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/Home_Login.PNG) |
 
+
 | Conta Criada |  Register |
 |------------|-------------|
 | ![AccountCreated](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/AccountCreated.PNG)| ![Register](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/Register.PNG)|
+
 
 |     Recuperar Senha      |
 |------------|-------------|
 | ![RecuperarSenha1](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/RecuperarSenha.PNG)| ![RecuperarSenha2](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/RecuperarSenhaDois.PNG)|
 
+
 |         Dashboard        |
 |------------|-------------|
 | ![Dashboard1](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/Dashboard.PNG)| ![Dashboard2](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashboardProfile.PNG)|
 
+
 | Transferência | Depósito |
 |------------|-------------|
 | ![Transferencia](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashTransfer.PNG)| ![Deposito](![PassRead](https://github.com/carolcasagrande/ImagensReadme/blob/main/mobile/dashDeposito.PNG)
+
 
 |       Lançamento         |
 |------------|-------------|
