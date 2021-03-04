@@ -99,7 +99,8 @@ export default function Register(){
 
                 <Icon.Button
                 name="chevron-right"
-                backgroundColor="#9B9B9B"   
+                backgroundColor="#9B9B9B" 
+                size={35}  
                 
                 onPress={handleCreateAccount}
                 >
@@ -107,7 +108,7 @@ export default function Register(){
                 </Icon.Button>
 
                 <Link  onPress={() => navigation.navigate('home')} > 
-                  Voltar para Login
+                  Voltar para Login >
                 </Link>
 
             </Form>

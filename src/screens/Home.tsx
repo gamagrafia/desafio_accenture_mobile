@@ -92,7 +92,8 @@ return (
 
                 <Icon.Button
                 name="chevron-right"
-                backgroundColor="#68DE5A"   
+                backgroundColor="#68DE5A" 
+                size={35}  
                 
                 onPress={handleLogin}
                 >
@@ -100,11 +101,11 @@ return (
                 </Icon.Button>
 
                 <Link  onPress={() => navigation.navigate('recover')} >
-                  Esqueci minha senha  
+                  Esqueci minha senha  >
                  </Link> 
 
                 <Link  onPress={() => navigation.navigate('register')} > 
-                  Criar uma nova conta
+                  Criar uma nova conta >
                 </Link>
 
             </Form>
