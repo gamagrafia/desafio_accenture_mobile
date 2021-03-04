@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View,Dimensions } from 'react-native';
-import Deposito from './app/components/deposito/deposito';
-import Tranferencia from './app/components/transferencia';
-import ListaPlanos from './app/components/listaPlanos'
+import Deposito from './screens/deposito';
+import Tranferencia from './screens/transferencia';
+
 
 export default class App extends React.Component {
   render() {

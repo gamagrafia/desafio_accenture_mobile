@@ -1,10 +1,11 @@
 import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, View, TextInput, Dimensions, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { withFormik } from 'formik';
 import styled from 'styled-components/native';
-import api from '../../../services/api'
+import api from '../services/api'
 
 
 
@@ -21,7 +22,7 @@ const Form = (props: any) => (
       onChangeText={text => props.setFieldValue('conta', text)}
     />
     <TextInputForm
-      placeholder='Em qual conta quer inserir Saldo?'
+      placeholder='Em qual conta quer inserir saldo?'
       value={props.values.contaDestino}
       onChangeText={text => props.setFieldValue('contaDestino', text)}
     />
@@ -50,10 +51,14 @@ const Form = (props: any) => (
       value={props.values.valor}
       onChangeText={text => props.setFieldValue('valor', text)}
     />
-     <ButtonConfirmar
-      onPress={props.handleSubmit}
-      title="Realizar transferência"
-    />
+     <Icon.Button
+      name="chevron-right"
+      onPress={props.handleSubmit}  
+      backgroundColor="#68DE5A"
+      size={30}   
+      >
+      Fazer Transferência
+      </Icon.Button>
     </Formulario>
   </Container>
 );
@@ -64,12 +69,14 @@ export default withFormik({
   handleSubmit: (values) => {
     console.log(values);
 
+   const token= AsyncStorage.getItem('@tokenApp')
+
    try {
         api
           .post("/lancamentos", values, {
             headers: {
               "Content-Type": "application/json",
-              "Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnYW1hZ3JhZmlhIiwiaWRVc3VhcmlvIjo4ODIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2MTQ4MTY1MzEsImV4cCI6MTYxNDgyMDEzMX0.k6sjREfHxjrFlyNEVoJfIxAqLNX3NpzpjkJpAGZO_-CxBz1LAfbr0BuLujE1bDCjhAkPIKtyQ9uMhl2Acd_VBw",
+              "Authorization": token,
             },
           })
           .then((response) => {
@@ -104,13 +111,13 @@ width: 100%;
 
 export const Formulario = styled.View`
 justify-content: center;
-align-items: center;
+align-items: stretch;
 display:flex;
 flex-direction: column;
 width: 80%;
 `
 export const TextInputForm = styled.TextInput`
-/* background-color:#7a7d77; */
+
 margin-bottom:20px;
 font-size: 20px;
 height:30px;
@@ -119,11 +126,7 @@ border-bottom-width: 1px;
 
 `
 
-export const ButtonConfirmar = styled.Button`
 
-
-
-`
 
    
 
